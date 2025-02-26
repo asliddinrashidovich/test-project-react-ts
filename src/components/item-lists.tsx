@@ -1,23 +1,46 @@
+import { Draggable, Droppable } from "react-beautiful-dnd";
+import { LIstsProp } from "../contants/interfaces";
 import ItemCard from "./item"
+import { useState } from "react";
 
-interface LIstsProp {
-    id: number,
-    Index: number,
-    context: string
-  }
-
+// console.log(DragDropContext)
 interface ItemsListsProps {
-    item: string,
-    listItem: LIstsProp
+    listItem: LIstsProp,
+    setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;
+    lists: LIstsProp,
+    item: string;
 }
 
-function ItemLists({item, listItem}:ItemsListsProps ) {
-
+function ItemLists({ listItem, setLIsts, lists, item}:ItemsListsProps ) {
   return (
     <div>
-        {listItem.map(listElement => {
-            return <ItemCard  listElement={listElement.context} key={listElement.context}/>
-        })}
+       <Droppable droppableId={item}>
+          {(provided, snapshot) => (
+            <div className="py-1"
+                ref={provided.innerRef}
+                style={{ backgroundColor: snapshot.isDraggingOver ? 'transparent' : 'transparent' }}
+                {...provided.droppableProps}
+              >
+              {listItem.map((listElement, i) => {
+                  return (
+                    <Draggable key={Math.random()} draggableId={listElement.context} index={i}>
+                      {(provided, snapshot) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                        >
+                          <ItemCard  lists={lists} setLIsts={setLIsts} listElement={listElement.context} key={Math.random()}/>
+                        </div>
+                      )}
+                    </Draggable>
+                  )
+              })} 
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+        
     </div>
   )
 }

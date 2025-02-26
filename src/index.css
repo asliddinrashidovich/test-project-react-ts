@@ -6,6 +6,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  position: relative;
+  overflow: auto;
+}
+* {
+  transition: all ease 0.3s;
 }
 ::-webkit-scrollbar {
   margin-top: 40px;
@@ -17,4 +22,9 @@ body {
 textarea {
   outline-width: 2px;
   outline-color: blue;
+  /* background-color: #0000001a; */
+}
+.addBtn:hover {
+  background-color: #7ca3939c;
+  transition: all ease 0.3s;
 }

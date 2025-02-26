@@ -1,11 +1,7 @@
 import { useState } from "react"
 import EditItem from "./edit-item";
+import { LIstsProp } from "../contants/interfaces";
 
-interface LIstsProp {
-  id: number,
-  Index: number,
-  context: string
-}
 interface setNewItems {
   setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;
   item: string,
@@ -16,15 +12,16 @@ function AnotherButton({setLIsts, item}: setNewItems): JSX.Element{
 
     function handleAdd() {
         setClicked(true)
+        console.log('asiddin')
     }
   return (
     <>
     
-     {!clicked && <button onClick={handleAdd} className="text-start bg-[#444] cursor-pointer flex gap-2 items-center w-full p-2 rounded-[10px] text-white" >
+     {!clicked && <button onClick={handleAdd} className="addBtn text-start bg-transparent  cursor-pointer flex gap-2 items-center w-full p-2 rounded-[10px] text-white" >
         <i className="fa-solid fa-plus"></i>
         <span>Add another card</span>
     </button> }  
-    {clicked && <EditItem item={item} setLIsts={setLIsts} setClicked={setClicked}/>}
+    {clicked && <EditItem item={item} clicked={clicked} setLIsts={setLIsts} setClicked={setClicked}/>}
     </>
   )
 }

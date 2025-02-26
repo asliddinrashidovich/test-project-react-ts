@@ -1,9 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react"
+import { Todo } from "../contants/interfaces";
 
-interface Todo {
-    id: number,
-    text: string
-}
 interface EditCardParams {
     item: string,
     setCards: React.Dispatch<React.SetStateAction<Todo[]>>,
