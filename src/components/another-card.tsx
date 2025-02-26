@@ -1,18 +1,25 @@
 interface Todo {
   id: number,
   text: string,
-  isFocus: boolean,
+}
+interface LIstsProp {
+  id: number,
+  Index: number,
+  context: string
 }
 interface setNewCards {
   setCards: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;
 }
 
-function AnotherCard({setCards}: setNewCards): JSX.Element{
+function AnotherCard({setCards, setLIsts}: setNewCards): JSX.Element{
   function handleAddCard() {
     setCards((item) => {
-      return [...item, {isFocus: true,id: item.length++ + 1, text: `New Column ${item.length++}`}]
+      return [...item, {id: item.length++ + 1, text: `New Column ${item.length++}`}]
     })
-
+    setLIsts((lists) => {
+      return [...lists, []]
+    })
   }
   return (
     <>

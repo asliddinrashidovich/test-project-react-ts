@@ -1,12 +1,19 @@
 import { useState } from "react"
 import EditItem from "./edit-item";
 
-function AnotherButton(): JSX.Element{
+interface LIstsProp {
+  id: number,
+  Index: number,
+  context: string
+}
+interface setNewItems {
+  setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;
+  item: string,
+}
+
+function AnotherButton({setLIsts, item}: setNewItems): JSX.Element{
     const [clicked, setClicked] = useState(false);
 
-    // document.addEventListener('click', (e) => {
-    //     console.log(e)
-    // })
     function handleAdd() {
         setClicked(true)
     }
@@ -17,7 +24,7 @@ function AnotherButton(): JSX.Element{
         <i className="fa-solid fa-plus"></i>
         <span>Add another card</span>
     </button> }  
-    {clicked && <EditItem/>}
+    {clicked && <EditItem item={item} setLIsts={setLIsts} setClicked={setClicked}/>}
     </>
   )
 }

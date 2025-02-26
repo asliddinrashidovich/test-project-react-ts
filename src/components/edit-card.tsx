@@ -3,7 +3,6 @@ import { ChangeEvent, FormEvent, useState } from "react"
 interface Todo {
     id: number,
     text: string
-    isFocus: boolean,
 }
 interface EditCardParams {
     item: string,

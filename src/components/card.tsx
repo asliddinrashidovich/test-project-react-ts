@@ -1,24 +1,29 @@
 import { useState } from "react"
 import AnotherButton from "./another-button"
 import EditCard from "./edit-card"
+import ItemCard from "./item"
+import ItemLists from "./item-lists"
 interface Todo {
   id: number,
   text: string
-  isFocus: boolean,
+}
+interface LIstsProp {
+  id: number,
+  Index: number,
+  context: string
 }
 interface ItemProps {
   item: string,
   setCards: React.Dispatch<React.SetStateAction<Todo[]>>
+  setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>
+  listItem: LIstsProp
 }
 
-function Card({item, setCards}: ItemProps): JSX.Element {
+function Card({item, setCards, setLIsts, listItem}: ItemProps): JSX.Element {
   const [editButton, setEditButton] = useState(false);
-
   function hundleEditItem() {
     setEditButton(true)
-
   }
-
 
   function handleDelete() {
     setCards((prevItems) => {
@@ -34,7 +39,8 @@ function Card({item, setCards}: ItemProps): JSX.Element {
             {editButton && <EditCard setEditButton={setEditButton} setCards={setCards} item={item}/>}
             <i onClick={handleDelete} className="fa-solid fa-xmark text-[22px] cursor-pointer"></i>
         </div>
-        <AnotherButton/>
+        <ItemLists listItem={listItem} item={item}/>
+        <AnotherButton setLIsts={setLIsts} item={item}/>
     </div>    
   )
 }
