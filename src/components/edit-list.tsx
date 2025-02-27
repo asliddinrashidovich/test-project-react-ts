@@ -28,7 +28,7 @@ function EditList({setClickedItem, calickedItem, lists, setLIsts , listElement}:
           return {...arrayItem}
       })
   }); 
-  setLIsts(editedArray.flat())
+  setLIsts(editedArray)
   setClickedItem(false)
   }
  

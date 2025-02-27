@@ -24,7 +24,7 @@ function ItemCard({listElement, setLIsts, lists}: ItemProps): JSX.Element {
         return arrayItem.context != listElement
       })
     }); 
-    setLIsts(newArray.flat())
+    setLIsts(newArray)
   }
   return (
     <>
