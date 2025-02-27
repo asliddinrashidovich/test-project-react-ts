@@ -1,14 +1,13 @@
 import CardsLists from "./components/cards-list"
 import AnotherCard from "./components/another-card"
 import { useEffect, useState } from "react";
-import { LIstsProp, Todo } from "./contants/interfaces";
+import { LIstsProp, Todo } from "./constants/interfaces";
 
 function App(): JSX.Element {
   const loadCards = (): Todo[] => {
     const data = localStorage.getItem("cards");
     return data ? JSON.parse(data) : []; 
   };
-
   const loadLists = (): LIstsProp[] => {
     const data = localStorage.getItem("lists");
     return data ? JSON.parse(data) : []; 

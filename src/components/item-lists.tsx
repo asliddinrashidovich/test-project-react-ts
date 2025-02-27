@@ -1,5 +1,5 @@
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import { Lists, LIstsProp } from "../contants/interfaces";
+import { LIstsProp } from "../constants/interfaces";
 import ItemCard from "./item"
 
 interface ItemsListsProps {

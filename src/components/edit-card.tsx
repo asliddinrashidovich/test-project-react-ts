@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
-import { Todo } from "../contants/interfaces";
+import { Todo } from "../constants/interfaces";
 
 interface EditCardParams {
     editButton: boolean,
@@ -12,7 +12,6 @@ interface EditCardParams {
 function EditCard({editButton, item, setCards, setEditButton}: EditCardParams): JSX.Element {
     const [textNew, setText] = useState<string>(item);
     const inputRefCard = useRef<HTMLTextAreaElement>(null)
-
     function handleEditName(e: FormEvent<HTMLFormElement>): void {
         e.preventDefault()
         if(!textNew?.trim().length) return;

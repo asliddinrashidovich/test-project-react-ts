@@ -1,12 +1,12 @@
 import Card from "./card"
-import { LIstsProp, Todo } from "../contants/interfaces";
+import { Lists, LIstsProp, Todo } from "../constants/interfaces";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 interface CardsListsProps {
   cards: Todo[]
   setCards: React.Dispatch<React.SetStateAction<Todo[]>>;
   setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;
-  lists: LIstsProp
+  lists: LIstsProp[]
 }
 
 function CardsLists({cards, setCards, setLIsts, lists}: CardsListsProps): JSX.Element {
@@ -21,7 +21,7 @@ function CardsLists({cards, setCards, setLIsts, lists}: CardsListsProps): JSX.El
       console.log(items) 
 
       const newArray = items.map((prev) => {
-        return prev.filter((arrayItem) => {
+        return prev.filter((arrayItem: Lists[]) => {
           console.log(arrayItem)
           return arrayItem.context != result.draggableId
         })
@@ -45,7 +45,7 @@ function CardsLists({cards, setCards, setLIsts, lists}: CardsListsProps): JSX.El
     <>  
       <DragDropContext   onDragEnd={onDragEnd}>
         {cards && cards.map((item: Todo, i) => {
-          return <Card setCards={setCards} cards={cards} lists={lists} setLIsts={setLIsts}  listItem={getLists(i)} item={item.text} key={Math.random()}/>
+          return <Card setCards={setCards} lists={lists} setLIsts={setLIsts}  listItem={getLists(i)} item={item.text} key={Math.random()}/>
         })}
       </DragDropContext>
     </>

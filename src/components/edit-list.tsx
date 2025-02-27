@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
-import { LIstItemPop, LIstsProp } from "../contants/interfaces";
+import { LIstItemPop, LIstsProp } from "../constants/interfaces";
 
 
 interface setNewItemsGroup {
@@ -28,7 +28,7 @@ function EditList({setClickedItem, calickedItem, lists, setLIsts , listElement}:
           return {...arrayItem}
       })
   }); 
-  setLIsts(editedArray)
+  setLIsts(editedArray.flat())
   setClickedItem(false)
   }
  

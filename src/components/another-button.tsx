@@ -1,6 +1,6 @@
 import { useState } from "react"
 import EditItem from "./edit-item";
-import { LIstsProp } from "../contants/interfaces";
+import { LIstsProp } from "../constants/interfaces";
 
 interface setNewItems {
   setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;

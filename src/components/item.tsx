@@ -1,5 +1,5 @@
 import EditList from "./edit-list";
-import { LIstsProp } from "../contants/interfaces";
+import { LIstsProp } from "../constants/interfaces";
 import { useState } from "react";
 
 interface ItemProps {
@@ -24,7 +24,7 @@ function ItemCard({listElement, setLIsts, lists}: ItemProps): JSX.Element {
         return arrayItem.context != listElement
       })
     }); 
-    setLIsts(newArray)
+    setLIsts(newArray.flat())
   }
   return (
     <>

@@ -1,4 +1,4 @@
-import { LIstsProp, Todo } from "../contants/interfaces";
+import { LIstsProp, Todo } from "../constants/interfaces";
 
 interface setNewCards {
   setCards: React.Dispatch<React.SetStateAction<Todo[]>>;

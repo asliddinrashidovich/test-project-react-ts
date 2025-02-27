@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
-import { LIstsProp, Todo } from "../contants/interfaces";
+import { LIstsProp, Todo } from "../constants/interfaces";
 
 interface setNewItemsGroup {
   setClicked: React.Dispatch<React.SetStateAction<boolean>>;
