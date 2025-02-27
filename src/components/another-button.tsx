@@ -12,7 +12,6 @@ function AnotherButton({setLIsts, item}: setNewItems): JSX.Element{
 
     function handleAdd() {
         setClicked(true)
-        console.log('asiddin')
     }
   return (
     <>
@@ -21,7 +20,7 @@ function AnotherButton({setLIsts, item}: setNewItems): JSX.Element{
         <i className="fa-solid fa-plus"></i>
         <span>Add another card</span>
     </button> }  
-    {clicked && <EditItem item={item} clicked={clicked} setLIsts={setLIsts} setClicked={setClicked}/>}
+    {clicked && <EditItem item={item} clicked={clicked} setLIsts={setLIsts} setClicked={setClicked} />}
     </>
   )
 }

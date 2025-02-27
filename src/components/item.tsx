@@ -1,6 +1,6 @@
-import { useState } from "react";
 import EditList from "./edit-list";
 import { LIstsProp } from "../contants/interfaces";
+import { useState } from "react";
 
 interface ItemProps {
   listElement: string,
@@ -8,16 +8,18 @@ interface ItemProps {
   lists: LIstsProp
 }
 
-function ItemCard({listElement, setLIsts, lists}: ItemProps) {
-  const [calickedItem, setClickedItem] = useState(false)
+function ItemCard({listElement, setLIsts, lists}: ItemProps): JSX.Element {
+  const [calickedItem, setClickedItem] = useState<boolean>(false)
 
+  
   
   function handleEdit() {
     setClickedItem(true)
-    
   }
+
+  
   function handleDelete() {
-    let newArray = lists.map(prev => {
+    const newArray = lists.map(prev => {
       return prev.filter(arrayItem => {
         return arrayItem.context != listElement
       })

@@ -1,9 +1,7 @@
 import { Draggable, Droppable } from "react-beautiful-dnd";
-import { LIstsProp } from "../contants/interfaces";
+import { Lists, LIstsProp } from "../contants/interfaces";
 import ItemCard from "./item"
-import { useState } from "react";
 
-// console.log(DragDropContext)
 interface ItemsListsProps {
     listItem: LIstsProp,
     setLIsts: React.Dispatch<React.SetStateAction<LIstsProp[]>>;
@@ -23,8 +21,8 @@ function ItemLists({ listItem, setLIsts, lists, item}:ItemsListsProps ) {
               >
               {listItem.map((listElement, i) => {
                   return (
-                    <Draggable key={Math.random()} draggableId={listElement.context} index={i}>
-                      {(provided, snapshot) => (
+                    <Draggable key={Math.random()} draggableId={listElement?.context} index={i}>
+                      {(provided) => (
                         <div
                           ref={provided.innerRef}
                           {...provided.draggableProps}

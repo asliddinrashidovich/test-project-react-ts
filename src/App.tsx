@@ -3,10 +3,7 @@ import AnotherCard from "./components/another-card"
 import { useEffect, useState } from "react";
 import { LIstsProp, Todo } from "./contants/interfaces";
 
-
-
 function App(): JSX.Element {
-
   const loadCards = (): Todo[] => {
     const data = localStorage.getItem("cards");
     return data ? JSON.parse(data) : []; 
@@ -17,7 +14,7 @@ function App(): JSX.Element {
     return data ? JSON.parse(data) : []; 
   };
   const [cards, setCards] = useState<Todo[]>(loadCards);
-  const [lists, setLIsts] = useState<Todo[]>(loadLists);
+  const [lists, setLIsts] = useState<LIstsProp[]>(loadLists);
   useEffect(() => {
     localStorage.setItem('cards', JSON.stringify(cards))
   }, [cards])

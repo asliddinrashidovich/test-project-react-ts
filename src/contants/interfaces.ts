@@ -2,8 +2,10 @@ export interface Todo {
     id: number,
     text: string,
 }
-export interface LIstsProp {
+export interface Lists {
     id: number,
     Index: number,
-    context: string
+    context: string,
 }
+export type LIstsProp = Lists[][]
+export type LIstItemPop = Lists[]
